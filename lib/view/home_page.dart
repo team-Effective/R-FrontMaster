@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: Image.asset('assets/images/create_game_logo.png'),
+                child: Image.asset('assets/images/create_game_link.png'),
               ),
             ),
           ),
