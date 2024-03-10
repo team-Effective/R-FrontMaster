@@ -1,6 +1,7 @@
 import 'package:dg_master/controller/counter_controller.dart';
 import 'package:dg_master/model/counter.dart';
 import 'package:dg_master/view/counter_page.dart';
+import 'package:dg_master/view/game_create_page.dart';
 import 'package:dg_master/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,9 +25,10 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        initialRoute: '/',
+        initialRoute: '/gameCreate',
         routes: {
-          '/': (context) => HomePage(),
+          '/': (context) => const HomePage(),
+          '/gameCreate': (context) => const GameCreatePage(),
           '/test': (context) => const CounterPage(),
         },
       ),

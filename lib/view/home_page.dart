@@ -29,7 +29,9 @@ class HomePage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.black,
                   border: Border.all(
-                      color: const Color.fromRGBO(67, 67, 67, 1), width: 4),
+                    color: const Color.fromRGBO(67, 67, 67, 1),
+                    width: 4,
+                  ),
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: const [
                     BoxShadow(
