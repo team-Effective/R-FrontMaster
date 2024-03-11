@@ -148,30 +148,46 @@ class CreateGamePage extends StatelessWidget {
                                               .map(
                                                 (str) => Container(
                                                   width: double.infinity,
-                                                  margin:
+                                                  padding:
                                                       const EdgeInsets.fromLTRB(
-                                                          0, 0, 0, 16),
+                                                          24, 16, 24, 16),
                                                   alignment: Alignment.center,
-                                                  child: Theme(
-                                                    data: ThemeData(
-                                                      unselectedWidgetColor:
-                                                          const Color.fromRGBO(
-                                                              17, 241, 255, 1),
-                                                    ),
-                                                    child: CheckboxListTile(
-                                                      title: Text(
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Text(
                                                         str,
                                                         style: const TextStyle(
-                                                          fontSize: 16,
+                                                          fontSize: 20,
                                                           color: Colors.white,
                                                         ),
                                                       ),
-                                                      activeColor:
-                                                          const Color.fromRGBO(
-                                                              17, 241, 255, 1),
-                                                      value: false,
-                                                      onChanged: (e) => {},
-                                                    ),
+                                                      Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          border: Border.all(
+                                                            color: Colors
+                                                                .lightGreen, //枠線の色
+                                                            width: 1, //枠線の太さ
+                                                          ),
+                                                        ),
+                                                        child: IconButton(
+                                                          onPressed: () {},
+                                                          padding:
+                                                              EdgeInsets.zero,
+                                                          constraints:
+                                                              const BoxConstraints(),
+                                                          icon: const Icon(
+                                                            Icons.add,
+                                                            size: 16,
+                                                            color: Colors
+                                                                .lightGreen,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
                                               )
@@ -184,26 +200,9 @@ class CreateGamePage extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const Expanded(
-                              flex: 1,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.arrow_forward,
-                                    size: 40,
-                                    color: Color.fromRGBO(17, 241, 255, 1),
-                                  ),
-                                  SizedBox(
-                                    height: 32,
-                                  ),
-                                  Icon(
-                                    Icons.arrow_back,
-                                    size: 40,
-                                    color: Color.fromRGBO(17, 241, 255, 1),
-                                  ),
-                                ],
-                              )),
+                          const SizedBox(
+                            width: 24,
+                          ),
                           Expanded(
                             flex: 3,
                             child: Column(
@@ -234,8 +233,8 @@ class CreateGamePage extends StatelessWidget {
                                     child: RawScrollbar(
                                       thumbColor: Colors.white,
                                       thickness: 4,
-                                      controller: gamePlayerController,
                                       thumbVisibility: true,
+                                      controller: gamePlayerController,
                                       child: SingleChildScrollView(
                                         controller: gamePlayerController,
                                         child: Column(
@@ -243,30 +242,45 @@ class CreateGamePage extends StatelessWidget {
                                               .map(
                                                 (str) => Container(
                                                   width: double.infinity,
-                                                  margin:
+                                                  padding:
                                                       const EdgeInsets.fromLTRB(
-                                                          0, 0, 0, 16),
+                                                          24, 16, 24, 16),
                                                   alignment: Alignment.center,
-                                                  child: Theme(
-                                                    data: ThemeData(
-                                                      unselectedWidgetColor:
-                                                          const Color.fromRGBO(
-                                                              17, 241, 255, 1),
-                                                    ),
-                                                    child: CheckboxListTile(
-                                                      title: Text(
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Text(
                                                         str,
                                                         style: const TextStyle(
-                                                          fontSize: 16,
+                                                          fontSize: 20,
                                                           color: Colors.white,
                                                         ),
                                                       ),
-                                                      activeColor:
-                                                          const Color.fromRGBO(
-                                                              17, 241, 255, 1),
-                                                      value: false,
-                                                      onChanged: (e) => {},
-                                                    ),
+                                                      Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          border: Border.all(
+                                                            color: Colors
+                                                                .red, //枠線の色
+                                                            width: 1, //枠線の太さ
+                                                          ),
+                                                        ),
+                                                        child: IconButton(
+                                                          onPressed: () {},
+                                                          padding:
+                                                              EdgeInsets.zero,
+                                                          constraints:
+                                                              const BoxConstraints(),
+                                                          icon: const Icon(
+                                                            Icons.remove,
+                                                            size: 16,
+                                                            color: Colors.red,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
                                               )
