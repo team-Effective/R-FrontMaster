@@ -25,30 +25,35 @@ class HomePage extends StatelessWidget {
             flex: 6,
             child: Container(
               padding: const EdgeInsets.fromLTRB(48, 0, 48, 48),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  border: Border.all(
-                    color: const Color.fromRGBO(67, 67, 67, 1),
-                    width: 4,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, '/game/create');
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    border: Border.all(
+                      color: const Color.fromRGBO(67, 67, 67, 1),
+                      width: 4,
+                    ),
+                    borderRadius: BorderRadius.circular(16),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color.fromRGBO(91, 91, 91, 1), //色
+                        spreadRadius: 2,
+                        blurRadius: 2,
+                        offset: Offset(-4, -4),
+                      ),
+                      BoxShadow(
+                        color: Color.fromRGBO(43, 43, 43, 1), //色
+                        spreadRadius: 2,
+                        blurRadius: 2,
+                        offset: Offset(4, 4),
+                      ),
+                    ],
                   ),
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Color.fromRGBO(91, 91, 91, 1), //色
-                      spreadRadius: 2,
-                      blurRadius: 2,
-                      offset: Offset(-4, -4),
-                    ),
-                    BoxShadow(
-                      color: Color.fromRGBO(43, 43, 43, 1), //色
-                      spreadRadius: 2,
-                      blurRadius: 2,
-                      offset: Offset(4, 4),
-                    ),
-                  ],
+                  child: Image.asset('assets/images/create_game_link.png'),
                 ),
-                child: Image.asset('assets/images/create_game_link.png'),
               ),
             ),
           ),
