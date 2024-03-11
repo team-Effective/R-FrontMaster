@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => const HomePage(),
-          '/gameCreate': (context) => const GameCreatePage(),
+          '/game/create': (context) => const GameCreatePage(),
           '/game/home': (context) => const GameHomePage(),
           '/test': (context) => const CounterPage(),
         },
