@@ -39,10 +39,28 @@ class GameCreatePage extends StatelessWidget {
             //アプリロゴ
             flex: 1,
             child: Container(
-              padding: const EdgeInsets.fromLTRB(64, 56, 64, 24),
-              child: Image.asset(
-                'assets/images/create_game_logo.png',
-                fit: BoxFit.contain,
+              padding: const EdgeInsets.fromLTRB(0, 56, 0, 24),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  IconButton(
+                    icon: const Icon(
+                      Icons.arrow_back,
+                      color: Color.fromRGBO(17, 241, 255, 1),
+                      size: 40,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  Image.asset(
+                    'assets/images/create_game_logo.png',
+                    fit: BoxFit.contain,
+                  ),
+                  const SizedBox(
+                    width: 40,
+                  )
+                ],
               ),
             ),
           ),
