@@ -49,13 +49,13 @@ class GameHomePage extends StatelessWidget {
             //メイン機能
             flex: 6,
             child: Container(
-              padding: const EdgeInsets.fromLTRB(48, 0, 48, 0),
+              padding: const EdgeInsets.fromLTRB(48, 0, 48, 48),
               child: Column(
                 children: [
                   Expanded(
                     flex: 6,
                     child: Container(
-                      padding: const EdgeInsets.fromLTRB(48, 0, 48, 48),
+                      padding: const EdgeInsets.fromLTRB(48, 0, 48, 0),
                       decoration: BoxDecoration(
                         color: Colors.black,
                         border: Border.all(
@@ -107,93 +107,82 @@ class GameHomePage extends StatelessWidget {
                           ),
                           Expanded(
                             flex: 9,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: const Color.fromRGBO(17, 241, 255, 1),
-                                  width: 1,
-                                ),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: RawScrollbar(
-                                thumbColor: Colors.white,
-                                thickness: 4,
-                                controller: gamePlayerController,
-                                thumbVisibility: true,
-                                child: SingleChildScrollView(
-                                  controller: gamePlayerController,
-                                  child: Column(
-                                    children: strList
-                                        .map(
-                                          (str) => Container(
-                                            width: double.infinity,
-                                            margin: const EdgeInsets.fromLTRB(
-                                                24, 12, 0, 12),
-                                            child: Text(
-                                              str,
-                                              style: const TextStyle(
-                                                fontSize: 24,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
-                                        )
-                                        .toList(),
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  flex: 5,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      border: Border.all(
+                                        color: const Color.fromRGBO(
+                                            17, 241, 255, 1),
+                                        width: 1,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: RawScrollbar(
+                                      thumbColor: Colors.white,
+                                      thickness: 4,
+                                      controller: gamePlayerController,
+                                      thumbVisibility: true,
+                                      child: SingleChildScrollView(
+                                        controller: gamePlayerController,
+                                        child: Column(
+                                          children: strList
+                                              .map(
+                                                (str) => Container(
+                                                  width: double.infinity,
+                                                  margin:
+                                                      const EdgeInsets.fromLTRB(
+                                                          24, 12, 0, 12),
+                                                  child: Text(
+                                                    str,
+                                                    style: const TextStyle(
+                                                      fontSize: 24,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ),
+                                              )
+                                              .toList(),
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    child: Center(
+                                      child: OutlinedButton.icon(
+                                        onPressed: () {},
+                                        style: OutlinedButton.styleFrom(
+                                          side: const BorderSide(
+                                            color: Colors.red,
+                                          ),
+                                          padding: const EdgeInsets.fromLTRB(
+                                              32, 16, 32, 16),
+                                        ),
+                                        icon: const Icon(
+                                          Icons.close,
+                                          size: 24,
+                                          color: Colors.red,
+                                        ),
+                                        label: const Text(
+                                          "Close Game",
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            color: Colors.red,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Center(
-                      child: Container(
-                        padding: const EdgeInsets.all(16),
-                        constraints: const BoxConstraints(
-                          minWidth: 0,
-                        ),
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(67, 67, 67, 1),
-                          borderRadius: BorderRadius.circular(16),
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color.fromRGBO(91, 91, 91, 1), //色
-                              spreadRadius: 1,
-                              blurRadius: 1,
-                              offset: Offset(-2, -2),
-                            ),
-                            BoxShadow(
-                              color: Color.fromRGBO(43, 43, 43, 1), //色
-                              spreadRadius: 1,
-                              blurRadius: 1,
-                              offset: Offset(2, 2),
-                            ),
-                          ],
-                        ),
-                        child: const Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              'Close Game',
-                              style: TextStyle(
-                                fontSize: 24,
-                                color: Colors.red,
-                              ),
-                            ),
-                            SizedBox(
-                              width: 4,
-                            ),
-                            Icon(
-                              Icons.cancel,
-                              color: Colors.red,
-                              size: 24,
-                            ),
-                          ],
-                        ),
                       ),
                     ),
                   ),
@@ -207,18 +196,20 @@ class GameHomePage extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
               decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment(0, -0.8),
-                      colors: [
-                        Color.fromRGBO(67, 67, 67, 1),
-                        Color.fromRGBO(80, 80, 80, 1)
-                      ]),
-                  border: Border(
-                      top: BorderSide(
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment(0, -0.8),
+                    colors: [
+                      Color.fromRGBO(67, 67, 67, 1),
+                      Color.fromRGBO(80, 80, 80, 1)
+                    ]),
+                border: Border(
+                  top: BorderSide(
                     color: Color.fromRGBO(60, 60, 60, 1),
                     width: 2,
-                  ))),
+                  ),
+                ),
+              ),
               child: Container(
                 padding: const EdgeInsets.fromLTRB(48, 16, 48, 16),
                 decoration: const BoxDecoration(
