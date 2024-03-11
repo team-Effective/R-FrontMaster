@@ -3,6 +3,7 @@ import 'package:dg_master/model/counter.dart';
 import 'package:dg_master/view/counter_page.dart';
 import 'package:dg_master/view/game_create_page.dart';
 import 'package:dg_master/view/game_home_page.dart';
+import 'package:dg_master/view/game_player_list_page.dart';
 import 'package:dg_master/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
           '/': (context) => const HomePage(),
           '/game/create': (context) => const GameCreatePage(),
           '/game/home': (context) => const GameHomePage(),
+          '/game/player/list': (context) => const GamePlayerListPage(),
           '/test': (context) => const CounterPage(),
         },
       ),

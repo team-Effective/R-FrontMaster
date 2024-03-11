@@ -292,7 +292,9 @@ class GameCreatePage extends StatelessWidget {
                 child: OutlinedButton(
                   onPressed: () {
                     Navigator.of(context).pushNamedAndRemoveUntil(
-                        '/game/home', (route) => false);
+                      '/game/home',
+                      (route) => false,
+                    );
                   },
                   style: OutlinedButton.styleFrom(
                     side: const BorderSide(
