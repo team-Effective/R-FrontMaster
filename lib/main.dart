@@ -6,6 +6,7 @@ import 'package:dg_master/view/game/edit_game_player_list_page.dart';
 import 'package:dg_master/view/game/game_home_page.dart';
 import 'package:dg_master/view/game/game_player_list_page.dart';
 import 'package:dg_master/view/home_page.dart';
+import 'package:dg_master/view/playable_player_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         initialRoute: '/home',
         routes: {
           '/home': (context) => const HomePage(),
-          '/player/list'
+          '/playablePlayer/list': (context) => const PlayablePlayerListPage(),
           '/game/create': (context) => const CreateGamePage(),
           '/game/home': (context) => const GameHomePage(),
           '/game/gamePlayer/list': (context) => const GamePlayerListPage(),

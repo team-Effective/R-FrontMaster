@@ -87,33 +87,41 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    AspectRatio(
-                      aspectRatio: 1,
-                      child: Container(
-                        height: 64,
-                        decoration: BoxDecoration(
-                            color: const Color.fromRGBO(80, 80, 80, 1),
-                            borderRadius: BorderRadius.circular(16),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Color.fromRGBO(104, 104, 104, 1), //色
-                                spreadRadius: 0,
-                                blurRadius: 2,
-                                offset: Offset(-2, -2),
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(56, 56, 56, 1), //色
-                                spreadRadius: 0,
-                                blurRadius: 2,
-                                offset: Offset(2, 2),
-                              ),
-                            ]),
-                        child: const Icon(
-                          Icons.person,
-                          color: Colors.white,
-                          size: 40,
-                          semanticLabel:
-                              'Text to announce in accessibility modes',
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                          '/playablePlayer/list',
+                          (route) => false,
+                        );
+                      },
+                      child: AspectRatio(
+                        aspectRatio: 1,
+                        child: Container(
+                          height: 64,
+                          decoration: BoxDecoration(
+                              color: const Color.fromRGBO(80, 80, 80, 1),
+                              borderRadius: BorderRadius.circular(16),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Color.fromRGBO(104, 104, 104, 1), //色
+                                  spreadRadius: 0,
+                                  blurRadius: 2,
+                                  offset: Offset(-2, -2),
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(56, 56, 56, 1), //色
+                                  spreadRadius: 0,
+                                  blurRadius: 2,
+                                  offset: Offset(2, 2),
+                                ),
+                              ]),
+                          child: const Icon(
+                            Icons.person,
+                            color: Colors.white,
+                            size: 40,
+                            semanticLabel:
+                                'Text to announce in accessibility modes',
+                          ),
                         ),
                       ),
                     ),
