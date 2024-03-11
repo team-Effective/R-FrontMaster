@@ -1,10 +1,10 @@
 import 'package:dg_master/controller/counter_controller.dart';
 import 'package:dg_master/model/counter.dart';
 import 'package:dg_master/view/counter_page.dart';
-import 'package:dg_master/view/create_game_page.dart';
-import 'package:dg_master/view/edit_game_player_list_page.dart';
-import 'package:dg_master/view/game_home_page.dart';
-import 'package:dg_master/view/game_player_list_page.dart';
+import 'package:dg_master/view/game/create_game_page.dart';
+import 'package:dg_master/view/game/edit_game_player_list_page.dart';
+import 'package:dg_master/view/game/game_home_page.dart';
+import 'package:dg_master/view/game/game_player_list_page.dart';
 import 'package:dg_master/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -28,13 +28,14 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        initialRoute: '/',
+        initialRoute: '/home',
         routes: {
-          '/': (context) => const HomePage(),
+          '/home': (context) => const HomePage(),
+          '/player/list'
           '/game/create': (context) => const CreateGamePage(),
           '/game/home': (context) => const GameHomePage(),
-          '/game/player/list': (context) => const GamePlayerListPage(),
-          '/game/player/list/edit': (context) => const EditGamePlayerListPage(),
+          '/game/gamePlayer/list': (context) => const GamePlayerListPage(),
+          '/game/gamePlayer/list/edit': (context) => const EditGamePlayerListPage(),
           '/test': (context) => const CounterPage(),
         },
       ),

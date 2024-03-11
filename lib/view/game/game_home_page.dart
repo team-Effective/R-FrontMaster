@@ -225,7 +225,7 @@ class GameHomePage extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         Navigator.of(context).pushNamedAndRemoveUntil(
-                          '/game/player/list',
+                          '/game/gamePlayer/list',
                           (route) => false,
                         );
                       },
