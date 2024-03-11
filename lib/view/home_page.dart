@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
             //メイン機能
             flex: 6,
             child: Container(
-              padding: const EdgeInsets.all(48),
+              padding: const EdgeInsets.fromLTRB(48, 0, 48, 48),
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.black,
