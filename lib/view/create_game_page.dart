@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class GameCreatePage extends StatelessWidget {
-  const GameCreatePage({super.key});
+class CreateGamePage extends StatelessWidget {
+  const CreateGamePage({super.key});
 
   @override
   Widget build(BuildContext context) {
