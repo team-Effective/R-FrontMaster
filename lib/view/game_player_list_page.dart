@@ -211,11 +211,8 @@ class GamePlayerListPage extends StatelessWidget {
                                     child: Center(
                                       child: OutlinedButton(
                                         onPressed: () {
-                                          Navigator.of(context)
-                                              .pushNamedAndRemoveUntil(
-                                            '/game/home',
-                                            (route) => false,
-                                          );
+                                          Navigator.pushNamed(context,
+                                              '/game/player/list/edit');
                                         },
                                         style: OutlinedButton.styleFrom(
                                           side: const BorderSide(
