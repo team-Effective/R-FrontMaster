@@ -65,206 +65,205 @@ class EditGamePlayerListPage extends StatelessWidget {
             ),
           ),
           Expanded(
-              //メイン
-              flex: 6,
-              child: Container(
-                padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
-                child: Column(
-                  children: [
-                    Expanded(
-                      flex: 7,
-                      child: Row(
-                        children: [
-                          Expanded(
-                            flex: 3,
-                            child: Column(
-                              children: [
-                                const Expanded(
-                                  flex: 1,
-                                  child: Center(
-                                    child: Text(
-                                      "PlayablePlayer",
-                                      style: TextStyle(
-                                        fontSize: 24,
-                                        color: Color.fromRGBO(17, 241, 255, 1),
-                                      ),
+            //メイン
+            flex: 6,
+            child: Container(
+              padding: const EdgeInsets.fromLTRB(24, 0, 24, 0),
+              child: Column(
+                children: [
+                  Expanded(
+                    flex: 7,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: Column(
+                            children: [
+                              const Expanded(
+                                flex: 1,
+                                child: Center(
+                                  child: Text(
+                                    "PlayablePlayer",
+                                    style: TextStyle(
+                                      fontSize: 24,
+                                      color: Color.fromRGBO(17, 241, 255, 1),
                                     ),
                                   ),
                                 ),
-                                Expanded(
-                                  flex: 12,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: const Color.fromRGBO(
-                                            17, 241, 255, 1),
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8),
+                              ),
+                              Expanded(
+                                flex: 12,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color:
+                                          const Color.fromRGBO(17, 241, 255, 1),
+                                      width: 1,
                                     ),
-                                    child: RawScrollbar(
-                                      thumbColor: Colors.white,
-                                      thickness: 4,
-                                      thumbVisibility: true,
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: RawScrollbar(
+                                    thumbColor: Colors.white,
+                                    thickness: 4,
+                                    thumbVisibility: true,
+                                    controller: playablePlayerController,
+                                    child: SingleChildScrollView(
                                       controller: playablePlayerController,
-                                      child: SingleChildScrollView(
-                                        controller: playablePlayerController,
-                                        child: Column(
-                                          children: strList
-                                              .map(
-                                                (str) => Container(
-                                                  width: double.infinity,
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          24, 16, 24, 16),
-                                                  alignment: Alignment.center,
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Text(
-                                                        str,
-                                                        style: const TextStyle(
-                                                          fontSize: 20,
-                                                          color: Colors.white,
+                                      child: Column(
+                                        children: strList
+                                            .map(
+                                              (str) => Container(
+                                                width: double.infinity,
+                                                padding:
+                                                    const EdgeInsets.fromLTRB(
+                                                        24, 16, 24, 16),
+                                                alignment: Alignment.center,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      str,
+                                                      style: const TextStyle(
+                                                        fontSize: 20,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                    Container(
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                          color: Colors
+                                                              .lightGreen, //枠線の色
+                                                          width: 1, //枠線の太さ
                                                         ),
                                                       ),
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          border: Border.all(
-                                                            color: Colors
-                                                                .lightGreen, //枠線の色
-                                                            width: 1, //枠線の太さ
-                                                          ),
-                                                        ),
-                                                        child: IconButton(
-                                                          onPressed: () {},
-                                                          padding:
-                                                              EdgeInsets.zero,
-                                                          constraints:
-                                                              const BoxConstraints(),
-                                                          icon: const Icon(
-                                                            Icons.add,
-                                                            size: 16,
-                                                            color: Colors
-                                                                .lightGreen,
-                                                          ),
+                                                      child: IconButton(
+                                                        onPressed: () {},
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                        constraints:
+                                                            const BoxConstraints(),
+                                                        icon: const Icon(
+                                                          Icons.add,
+                                                          size: 16,
+                                                          color:
+                                                              Colors.lightGreen,
                                                         ),
                                                       ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              )
-                                              .toList(),
-                                        ),
+                                              ),
+                                            )
+                                            .toList(),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(
-                            width: 24,
-                          ),
-                          Expanded(
-                            flex: 3,
-                            child: Column(
-                              children: [
-                                const Expanded(
-                                  flex: 1,
-                                  child: Center(
-                                    child: Text(
-                                      "GamePlayer",
-                                      style: TextStyle(
-                                        fontSize: 24,
-                                        color: Color.fromRGBO(17, 241, 255, 1),
-                                      ),
+                        ),
+                        const SizedBox(
+                          width: 24,
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Column(
+                            children: [
+                              const Expanded(
+                                flex: 1,
+                                child: Center(
+                                  child: Text(
+                                    "GamePlayer",
+                                    style: TextStyle(
+                                      fontSize: 24,
+                                      color: Color.fromRGBO(17, 241, 255, 1),
                                     ),
                                   ),
                                 ),
-                                Expanded(
-                                  flex: 12,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        color: const Color.fromRGBO(
-                                            17, 241, 255, 1),
-                                        width: 1,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8),
+                              ),
+                              Expanded(
+                                flex: 12,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color:
+                                          const Color.fromRGBO(17, 241, 255, 1),
+                                      width: 1,
                                     ),
-                                    child: RawScrollbar(
-                                      thumbColor: Colors.white,
-                                      thickness: 4,
-                                      thumbVisibility: true,
-                                      controller: playablePlayerController,
-                                      child: SingleChildScrollView(
-                                        controller: playablePlayerController,
-                                        child: Column(
-                                          children: strList
-                                              .map(
-                                                (str) => Container(
-                                                  width: double.infinity,
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          24, 16, 24, 16),
-                                                  alignment: Alignment.center,
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Text(
-                                                        str,
-                                                        style: const TextStyle(
-                                                          fontSize: 20,
-                                                          color: Colors.white,
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: RawScrollbar(
+                                    thumbColor: Colors.white,
+                                    thickness: 4,
+                                    thumbVisibility: true,
+                                    controller: gamePlayerController,
+                                    child: SingleChildScrollView(
+                                      controller: gamePlayerController,
+                                      child: Column(
+                                        children: strList
+                                            .map(
+                                              (str) => Container(
+                                                width: double.infinity,
+                                                padding:
+                                                    const EdgeInsets.fromLTRB(
+                                                        24, 16, 24, 16),
+                                                alignment: Alignment.center,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      str,
+                                                      style: const TextStyle(
+                                                        fontSize: 20,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                    Container(
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                          color:
+                                                              Colors.red, //枠線の色
+                                                          width: 1, //枠線の太さ
                                                         ),
                                                       ),
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          border: Border.all(
-                                                            color: Colors
-                                                                .red, //枠線の色
-                                                            width: 1, //枠線の太さ
-                                                          ),
-                                                        ),
-                                                        child: IconButton(
-                                                          onPressed: () {},
-                                                          padding:
-                                                              EdgeInsets.zero,
-                                                          constraints:
-                                                              const BoxConstraints(),
-                                                          icon: const Icon(
-                                                            Icons.remove,
-                                                            size: 16,
-                                                            color: Colors.red,
-                                                          ),
+                                                      child: IconButton(
+                                                        onPressed: () {},
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                        constraints:
+                                                            const BoxConstraints(),
+                                                        icon: const Icon(
+                                                          Icons.remove,
+                                                          size: 16,
+                                                          color: Colors.red,
                                                         ),
                                                       ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                  ],
                                                 ),
-                                              )
-                                              .toList(),
-                                        ),
+                                              ),
+                                            )
+                                            .toList(),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              )),
+                  ),
+                ],
+              ),
+            ),
+          ),
           Expanded(
             flex: 1,
             child: Container(
