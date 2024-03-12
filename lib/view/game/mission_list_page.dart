@@ -169,7 +169,9 @@ class MissionListPage extends StatelessWidget {
                                                         ],
                                                       ),
                                                       OutlinedButton(
-                                                        onPressed: () {},
+                                                        onPressed: () {
+                                                          Navigator.pushNamed(context, '/game/mission/details');
+                                                        },
                                                         style: OutlinedButton
                                                             .styleFrom(
                                                           side:
