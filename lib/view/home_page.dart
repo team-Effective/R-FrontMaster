@@ -111,11 +111,9 @@ class HomePage extends StatelessWidget {
                                 ),
                               ]),
                           child: const Icon(
-                            Icons.person,
+                            Icons.settings,
                             color: Colors.white,
                             size: 40,
-                            semanticLabel:
-                                'Text to announce in accessibility modes',
                           ),
                         ),
                       ),
@@ -179,11 +177,9 @@ class HomePage extends StatelessWidget {
                                 ),
                               ]),
                           child: const Icon(
-                            Icons.list,
+                            Icons.groups,
                             color: Colors.white,
                             size: 40,
-                            semanticLabel:
-                                'Text to announce in accessibility modes',
                           ),
                         ),
                       ),
