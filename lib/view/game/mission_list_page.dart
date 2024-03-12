@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class GamePlayerListPage extends StatelessWidget {
-  const GamePlayerListPage({super.key});
+class MissionListPage extends StatelessWidget {
+  const MissionListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +27,7 @@ class GamePlayerListPage extends StatelessWidget {
       'テスト19',
       'テスト20',
     ];
+
     ScrollController gamePlayerController = ScrollController();
 
     return Scaffold(
@@ -86,7 +87,7 @@ class GamePlayerListPage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(
-                                    Icons.sports_esports,
+                                    Icons.rocket_launch,
                                     size: 32,
                                     color: Color.fromRGBO(17, 241, 255, 1),
                                   ),
@@ -94,7 +95,7 @@ class GamePlayerListPage extends StatelessWidget {
                                     width: 8,
                                   ),
                                   Text(
-                                    "Game Player",
+                                    "Mission",
                                     style: TextStyle(
                                       fontSize: 32,
                                       color: Color.fromRGBO(17, 241, 255, 1),
@@ -139,61 +140,63 @@ class GamePlayerListPage extends StatelessWidget {
                                                         MainAxisAlignment
                                                             .spaceBetween,
                                                     children: [
-                                                      Text(
-                                                        str,
-                                                        style: const TextStyle(
-                                                          fontSize: 24,
-                                                          color: Colors.white,
-                                                        ),
-                                                      ),
-                                                      Row(
+                                                      Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
                                                         children: [
-                                                          const Icon(
-                                                            true
-                                                                ? Icons.favorite
-                                                                : Icons
-                                                                    .heart_broken,
-                                                            size: 24,
-                                                            color: true
-                                                                ? Color
-                                                                    .fromRGBO(
-                                                                        17,
-                                                                        241,
-                                                                        255,
-                                                                        1)
-                                                                : Colors.grey,
-                                                          ),
-                                                          const SizedBox(
-                                                            width: 24,
-                                                          ),
-                                                          OutlinedButton.icon(
-                                                            onPressed: () {},
+                                                          Text(
+                                                            str,
                                                             style:
-                                                                OutlinedButton
-                                                                    .styleFrom(
-                                                              side: const BorderSide(
-                                                                  color: Colors
-                                                                      .yellow),
-                                                              padding:
-                                                                  const EdgeInsets
-                                                                      .all(8),
-                                                            ),
-                                                            icon: const Icon(
-                                                              Icons.bolt,
-                                                              size: 16,
+                                                                const TextStyle(
+                                                              fontSize: 24,
                                                               color:
-                                                                  Colors.yellow,
-                                                            ),
-                                                            label: const Text(
-                                                              "Execute",
-                                                              style: TextStyle(
-                                                                fontSize: 16,
-                                                                color: Colors
-                                                                    .yellow,
-                                                              ),
+                                                                  Colors.white,
                                                             ),
                                                           ),
+                                                          const Text(
+                                                            'クリア人数: 8/10',
+                                                            style: TextStyle(
+                                                              fontSize: 16,
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      17,
+                                                                      241,
+                                                                      255,
+                                                                      1),
+                                                            ),
+                                                          )
                                                         ],
+                                                      ),
+                                                      OutlinedButton(
+                                                        onPressed: () {},
+                                                        style: OutlinedButton
+                                                            .styleFrom(
+                                                          side:
+                                                              const BorderSide(
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    17,
+                                                                    241,
+                                                                    255,
+                                                                    1),
+                                                          ),
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(8),
+                                                        ),
+                                                        child: const Text(
+                                                          "Details",
+                                                          style: TextStyle(
+                                                            fontSize: 16,
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    17,
+                                                                    241,
+                                                                    255,
+                                                                    1),
+                                                          ),
+                                                        ),
                                                       ),
                                                     ],
                                                   ),
@@ -207,28 +210,26 @@ class GamePlayerListPage extends StatelessWidget {
                                 ),
                                 Expanded(
                                   flex: 1,
-                                  child: Container(
-                                    child: Center(
-                                      child: OutlinedButton(
-                                        onPressed: () {
-                                          Navigator.pushNamed(context,
-                                              '/game/gamePlayer/list/edit');
-                                        },
-                                        style: OutlinedButton.styleFrom(
-                                          side: const BorderSide(
-                                            color:
-                                                Color.fromRGBO(17, 241, 255, 1),
-                                          ),
-                                          padding: const EdgeInsets.fromLTRB(
-                                              32, 16, 32, 16),
+                                  child: Center(
+                                    child: OutlinedButton.icon(
+                                      onPressed: () {},
+                                      style: OutlinedButton.styleFrom(
+                                        side: const BorderSide(
+                                          color: Colors.lightGreen,
                                         ),
-                                        child: const Text(
-                                          "Edit",
-                                          style: TextStyle(
-                                            fontSize: 24,
-                                            color:
-                                                Color.fromRGBO(17, 241, 255, 1),
-                                          ),
+                                        padding: const EdgeInsets.fromLTRB(
+                                            32, 16, 32, 16),
+                                      ),
+                                      icon: const Icon(
+                                        Icons.add,
+                                        size: 24,
+                                        color: Colors.lightGreen,
+                                      ),
+                                      label: const Text(
+                                        "Create Mission",
+                                        style: TextStyle(
+                                          fontSize: 24,
+                                          color: Colors.lightGreen,
                                         ),
                                       ),
                                     ),
@@ -251,18 +252,20 @@ class GamePlayerListPage extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
               decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment(0, -0.8),
-                      colors: [
-                        Color.fromRGBO(67, 67, 67, 1),
-                        Color.fromRGBO(80, 80, 80, 1)
-                      ]),
-                  border: Border(
-                      top: BorderSide(
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment(0, -0.8),
+                    colors: [
+                      Color.fromRGBO(67, 67, 67, 1),
+                      Color.fromRGBO(80, 80, 80, 1)
+                    ]),
+                border: Border(
+                  top: BorderSide(
                     color: Color.fromRGBO(60, 60, 60, 1),
                     width: 2,
-                  ))),
+                  ),
+                ),
+              ),
               child: Container(
                 padding: const EdgeInsets.fromLTRB(48, 16, 48, 16),
                 decoration: const BoxDecoration(
@@ -275,31 +278,41 @@ class GamePlayerListPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    AspectRatio(
-                      aspectRatio: 1,
-                      child: Container(
-                        height: 64,
-                        decoration: BoxDecoration(
-                            color: const Color.fromRGBO(80, 80, 80, 1),
-                            borderRadius: BorderRadius.circular(16),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Color.fromRGBO(104, 104, 104, 1), //色
-                                spreadRadius: 0,
-                                blurRadius: 2,
-                                offset: Offset(-2, -2),
-                              ),
-                              BoxShadow(
-                                color: Color.fromRGBO(56, 56, 56, 1), //色
-                                spreadRadius: 0,
-                                blurRadius: 2,
-                                offset: Offset(2, 2),
-                              ),
-                            ]),
-                        child: const Icon(
-                          Icons.contacts,
-                          color: Colors.white,
-                          size: 40,
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                          '/game/gamePlayer/list',
+                          (route) => false,
+                        );
+                      },
+                      child: AspectRatio(
+                        aspectRatio: 1,
+                        child: Container(
+                          height: 64,
+                          decoration: BoxDecoration(
+                              color: const Color.fromRGBO(80, 80, 80, 1),
+                              borderRadius: BorderRadius.circular(16),
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Color.fromRGBO(104, 104, 104, 1), //色
+                                  spreadRadius: 0,
+                                  blurRadius: 2,
+                                  offset: Offset(-2, -2),
+                                ),
+                                BoxShadow(
+                                  color: Color.fromRGBO(56, 56, 56, 1), //色
+                                  spreadRadius: 0,
+                                  blurRadius: 2,
+                                  offset: Offset(2, 2),
+                                ),
+                              ]),
+                          child: const Icon(
+                            Icons.contacts,
+                            color: Colors.white,
+                            size: 40,
+                            semanticLabel:
+                                'Text to announce in accessibility modes',
+                          ),
                         ),
                       ),
                     ),
@@ -335,43 +348,39 @@ class GamePlayerListPage extends StatelessWidget {
                             Icons.home,
                             color: Colors.white,
                             size: 40,
+                            semanticLabel:
+                                'Text to announce in accessibility modes',
                           ),
                         ),
                       ),
                     ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                          '/game/mission/list',
-                          (route) => false,
-                        );
-                      },
-                      child: AspectRatio(
-                        aspectRatio: 1,
-                        child: Container(
-                          height: 64,
-                          decoration: BoxDecoration(
-                              color: const Color.fromRGBO(80, 80, 80, 1),
-                              borderRadius: BorderRadius.circular(16),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Color.fromRGBO(104, 104, 104, 1), //色
-                                  spreadRadius: 0,
-                                  blurRadius: 2,
-                                  offset: Offset(-2, -2),
-                                ),
-                                BoxShadow(
-                                  color: Color.fromRGBO(56, 56, 56, 1), //色
-                                  spreadRadius: 0,
-                                  blurRadius: 2,
-                                  offset: Offset(2, 2),
-                                ),
-                              ]),
-                          child: const Icon(
-                            Icons.rocket_launch,
-                            color: Colors.white,
-                            size: 40,
-                          ),
+                    AspectRatio(
+                      aspectRatio: 1,
+                      child: Container(
+                        height: 64,
+                        decoration: BoxDecoration(
+                            color: const Color.fromRGBO(80, 80, 80, 1),
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Color.fromRGBO(104, 104, 104, 1), //色
+                                spreadRadius: 0,
+                                blurRadius: 2,
+                                offset: Offset(-2, -2),
+                              ),
+                              BoxShadow(
+                                color: Color.fromRGBO(56, 56, 56, 1), //色
+                                spreadRadius: 0,
+                                blurRadius: 2,
+                                offset: Offset(2, 2),
+                              ),
+                            ]),
+                        child: const Icon(
+                          Icons.rocket_launch,
+                          color: Colors.white,
+                          size: 40,
+                          semanticLabel:
+                              'Text to announce in accessibility modes',
                         ),
                       ),
                     )
