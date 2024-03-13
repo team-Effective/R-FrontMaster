@@ -9,6 +9,7 @@ import 'package:dg_master/view/game/game_player_list_page.dart';
 import 'package:dg_master/view/game/mission_details_page.dart';
 import 'package:dg_master/view/game/mission_list_page.dart';
 import 'package:dg_master/view/home_page.dart';
+import 'package:dg_master/view/login_page.dart';
 import 'package:dg_master/view/playable_player_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -32,8 +33,9 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        initialRoute: '/home',
+        initialRoute: '/login',
         routes: {
+          '/login': (context) => const LoginPage(),
           '/home': (context) => const HomePage(),
           '/playablePlayer/list': (context) => const PlayablePlayerListPage(),
           '/game/create': (context) => const CreateGamePage(),
