@@ -73,106 +73,140 @@ class CreateMissionPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                      flex: 1,
-                      child: Container(
-                        padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
-                        alignment: Alignment.center,
-                        child: const TextField(
-                          style: TextStyle(color: Colors.white),
-                          decoration: InputDecoration(
-                            label: Text(
-                              'MissionTitle',
-                              style: TextStyle(
-                                color: Color.fromRGBO(17, 241, 255, 1),
-                              ),
-                            ),
-                            hintText: 'ミッションタイトルを入力してください',
-                            hintStyle: TextStyle(
-                              color: Color.fromRGBO(17, 239, 255, 0.5),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color.fromRGBO(17, 241, 255, 1),
-                                width: 1,
-                              ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color.fromRGBO(17, 241, 255, 1),
-                                width: 1,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    Expanded(
-                      flex: 2,
+                      flex: 3,
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
-                            decoration: const BoxDecoration(
-                              border: Border(
-                                left: BorderSide(
-                                  color: Color.fromRGBO(17, 241, 255, 1),
-                                  width: 8,
+                          Expanded(
+                            flex: 3,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(8, 0, 0, 0),
+                                  decoration: const BoxDecoration(
+                                    border: Border(
+                                      left: BorderSide(
+                                        color: Color.fromRGBO(17, 241, 255, 1),
+                                        width: 8,
+                                      ),
+                                    ),
+                                  ),
+                                  child: const Text(
+                                    'ミッションタイトル',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+                                Container(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(40, 0, 40, 0),
+                                  alignment: Alignment.center,
+                                  child: const TextField(
+                                    style: TextStyle(color: Colors.white),
+                                    decoration: InputDecoration(
+                                      hintText: 'ミッションタイトルを入力してください',
+                                      hintStyle: TextStyle(
+                                        color:
+                                            Color.fromRGBO(17, 239, 255, 0.5),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color:
+                                              Color.fromRGBO(17, 241, 255, 1),
+                                          width: 1,
+                                        ),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color:
+                                              Color.fromRGBO(17, 241, 255, 1),
+                                          width: 1,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                            child: const Text(
-                              '達成条件',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 24,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 24,
                           ),
                           Expanded(
-                            flex: 1,
-                            child: Container(
-                              margin: const EdgeInsets.fromLTRB(24, 0, 24, 0),
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    color:
-                                        const Color.fromRGBO(17, 241, 255, 1),
-                                    width: 1),
-                                borderRadius: BorderRadius.circular(4),
-                              ),
-                              child: const TextField(
-                                keyboardType: TextInputType.multiline,
-                                maxLines: 3,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 24,
-                                ),
-                                decoration: InputDecoration(
-                                  hintText: 'ミッションタイトルを入力してください',
-                                  hintStyle: TextStyle(
-                                    color: Color.fromRGBO(17, 239, 255, 0.5),
+                            flex: 4,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(8, 0, 0, 0),
+                                  decoration: const BoxDecoration(
+                                    border: Border(
+                                      left: BorderSide(
+                                        color: Color.fromRGBO(17, 241, 255, 1),
+                                        width: 8,
+                                      ),
+                                    ),
                                   ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide.none,
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide.none,
+                                  child: const Text(
+                                    '達成条件',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                    ),
                                   ),
                                 ),
-                              ),
+                                const SizedBox(
+                                  height: 16,
+                                ),
+                                Container(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(40, 0, 40, 0),
+                                  child: const TextField(
+                                    keyboardType: TextInputType.multiline,
+                                    maxLines: 3,
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 24,
+                                    ),
+                                    decoration: InputDecoration(
+                                      hintText: '達成条件を入力してください',
+                                      contentPadding: EdgeInsets.all(8),
+                                      hintStyle: TextStyle(
+                                        color:
+                                            Color.fromRGBO(17, 239, 255, 0.5),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color:
+                                              Color.fromRGBO(17, 241, 255, 1),
+                                          width: 1,
+                                        ),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color:
+                                              Color.fromRGBO(17, 241, 255, 1),
+                                          width: 1,
+                                        ),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Colors.red,
+                                          width: 1,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
-                    ),
-                    const SizedBox(
-                      height: 16,
                     ),
                     Expanded(
                       flex: 5,
