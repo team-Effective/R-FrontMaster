@@ -2,6 +2,7 @@ import 'package:dg_master/controller/counter_controller.dart';
 import 'package:dg_master/model/counter.dart';
 import 'package:dg_master/view/counter_page.dart';
 import 'package:dg_master/view/game/create_game_page.dart';
+import 'package:dg_master/view/game/create_mission_page.dart';
 import 'package:dg_master/view/game/edit_game_player_list_page.dart';
 import 'package:dg_master/view/game/game_home_page.dart';
 import 'package:dg_master/view/game/game_player_list_page.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
           '/game/gamePlayer/list/edit': (context) => const EditGamePlayerListPage(),
           '/game/mission/list': (context) => const MissionListPage(),
           '/game/mission/details': (context) => const MissionDetailsPage(),
+          '/game/mission/create': (context) => const CreateMissionPage(),
           '/test': (context) => const CounterPage(),
         },
       ),

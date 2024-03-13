@@ -28,7 +28,6 @@ class MissionDetailsPage extends StatelessWidget {
       'テスト20',
     ];
 
-    ScrollController playablePlayerController = ScrollController();
     ScrollController gamePlayerController = ScrollController();
 
     return Scaffold(

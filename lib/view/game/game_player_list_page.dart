@@ -155,12 +155,7 @@ class GamePlayerListPage extends StatelessWidget {
                                                                     .heart_broken,
                                                             size: 24,
                                                             color: true
-                                                                ? Color
-                                                                    .fromRGBO(
-                                                                        17,
-                                                                        241,
-                                                                        255,
-                                                                        1)
+                                                                ? Colors.pink
                                                                 : Colors.grey,
                                                           ),
                                                           const SizedBox(
