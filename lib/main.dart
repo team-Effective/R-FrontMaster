@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         initialRoute: '/login',
         routes: {
           '/login': (context) => const LoginPage(),
@@ -41,7 +42,8 @@ class MyApp extends StatelessWidget {
           '/game/create': (context) => const CreateGamePage(),
           '/game/home': (context) => const GameHomePage(),
           '/game/gamePlayer/list': (context) => const GamePlayerListPage(),
-          '/game/gamePlayer/list/edit': (context) => const EditGamePlayerListPage(),
+          '/game/gamePlayer/list/edit': (context) =>
+              const EditGamePlayerListPage(),
           '/game/mission/list': (context) => const MissionListPage(),
           '/game/mission/details': (context) => const MissionDetailsPage(),
           '/game/mission/create': (context) => const CreateMissionPage(),
