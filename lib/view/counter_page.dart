@@ -1,5 +1,5 @@
 import 'package:dg_master/controller/counter_controller.dart';
-import 'package:dg_master/model/counter.dart';
+import 'package:dg_master/logic/counter.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

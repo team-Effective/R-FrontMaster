@@ -1,5 +1,6 @@
 import 'package:dg_master/controller/counter_controller.dart';
-import 'package:dg_master/model/counter.dart';
+import 'package:dg_master/logic/connect_websocket.dart';
+import 'package:dg_master/logic/counter.dart';
 import 'package:dg_master/provider/test_provider.dart';
 import 'package:dg_master/view/counter_page.dart';
 import 'package:dg_master/view/game/create_game_page.dart';
@@ -27,6 +28,9 @@ class MyApp extends StatelessWidget {
     TestProvider testProvider = TestProvider();
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(
+          create: (context) => WebSocketProvider()
+        ),
         ChangeNotifierProvider<Counter>(
           create: (context) => Counter(),
         ),

@@ -1,4 +1,6 @@
+import 'package:dg_master/logic/shared_preferences_logic.dart';
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 
 class CreateGamePage extends StatelessWidget {
   const CreateGamePage({super.key});
@@ -305,6 +307,10 @@ class CreateGamePage extends StatelessWidget {
               child: Center(
                 child: OutlinedButton(
                   onPressed: () {
+                    //mission_idを作成
+                    String _game_id = const Uuid().v4(); // UUID
+                    //mission_idを端末に保存
+                    SharedPreferencesLogic().saveGameID(_game_id);
                     Navigator.of(context).pushNamedAndRemoveUntil(
                       '/game/home',
                       (route) => false,

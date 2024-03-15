@@ -1,8 +1,11 @@
+import 'package:dg_master/logic/connect_websocket.dart';
+import 'package:dg_master/logic/notify_player.dart';
+import 'package:dg_master/logic/shared_preferences_logic.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class GamePlayerListPage extends StatelessWidget {
   const GamePlayerListPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     List<String> strList = [
@@ -28,6 +31,16 @@ class GamePlayerListPage extends StatelessWidget {
       'テスト20',
     ];
     ScrollController gamePlayerController = ScrollController();
+    String host_id = "";
+
+    //端末からuser_idを取得する
+    SharedPreferencesLogic().getHostID().then((hostID) {
+      if (hostID != null) {
+        host_id = hostID;
+        final webSocketProvider = Provider.of<WebSocketProvider>(context , listen: false);
+        webSocketProvider.connectWebSocket(host_id); // WebSocket接続を確立
+      }
+    });
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(67, 67, 67, 1),
@@ -162,7 +175,10 @@ class GamePlayerListPage extends StatelessWidget {
                                                             width: 24,
                                                           ),
                                                           OutlinedButton.icon(
-                                                            onPressed: () {},
+                                                            onPressed: () {
+                                                              //TODO: プレイヤーにミッションの失敗を通知する
+                                                              NotifyPlayer().MissionResult(host_id , false);
+                                                            },
                                                             style:
                                                                 OutlinedButton
                                                                     .styleFrom(

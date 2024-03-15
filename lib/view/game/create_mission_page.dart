@@ -1,4 +1,9 @@
+import 'package:dg_master/logic/connect_websocket.dart';
+import 'package:dg_master/logic/notify_player.dart';
+import 'package:dg_master/logic/shared_preferences_logic.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:uuid/uuid.dart';
 
 class CreateMissionPage extends StatelessWidget {
   const CreateMissionPage({super.key});
@@ -30,6 +35,17 @@ class CreateMissionPage extends StatelessWidget {
 
     ScrollController playablePlayerController = ScrollController();
     ScrollController gamePlayerController = ScrollController();
+    String host_id = '';
+
+    //端末からuser_idを取得する
+    SharedPreferencesLogic().getHostID().then((hostID) {
+      if (hostID != null) {
+      host_id = hostID;
+        final webSocketProvider = Provider.of<WebSocketProvider>(context , listen: false);
+        webSocketProvider.connectWebSocket(host_id); // WebSocket接続を確立
+      }
+    });
+
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -408,6 +424,12 @@ class CreateMissionPage extends StatelessWidget {
               child: Center(
                 child: OutlinedButton(
                   onPressed: () {
+                    //mission_idを作成
+                    String _mission_id = const Uuid().v4(); // UUID
+                    //mission_idを端末に保存
+                    SharedPreferencesLogic().saveMissionID(_mission_id);
+
+                    NotifyPlayer().MissionCreation(host_id , strList); //TODO:test
                     Navigator.of(context).pushNamedAndRemoveUntil(
                       '/game/home',
                       (route) => false,

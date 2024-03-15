@@ -1,12 +1,27 @@
+import 'package:dg_master/logic/shared_preferences_logic.dart';
+import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 import 'dart:convert';
-
 import 'package:dg_master/provider/test_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class LoginPage extends StatefulWidget  {
+  const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
+  late String _host_id;
+
+  @override
+  initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -131,6 +146,10 @@ class LoginPage extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(0, 32, 0, 32),
                 child: InkWell(
                   onTap: () {
+                    _host_id = const Uuid().v4(); // UUID を生成
+                    print(_host_id);
+                    //host_id を保存
+                    SharedPreferencesLogic().saveHostID(_host_id);
                     // testProvider.setTest();
                     Navigator.of(context).pushNamedAndRemoveUntil(
                       '/home',
