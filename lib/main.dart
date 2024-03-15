@@ -1,5 +1,6 @@
 import 'package:dg_master/controller/counter_controller.dart';
 import 'package:dg_master/model/counter.dart';
+import 'package:dg_master/provider/test_provider.dart';
 import 'package:dg_master/view/counter_page.dart';
 import 'package:dg_master/view/game/create_game_page.dart';
 import 'package:dg_master/view/game/create_mission_page.dart';
@@ -23,10 +24,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TestProvider testProvider = TestProvider();
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<Counter>(
           create: (context) => Counter(),
+        ),
+        ChangeNotifierProvider<TestProvider>(
+          create: (context) => testProvider,
         ),
         ProxyProvider<Counter, CounterController>(
           update: (_, counter, __) => CounterController(counter),
