@@ -1,4 +1,4 @@
-import 'package:dg_master/model/counter.dart';
+import 'package:dg_master/logic/counter.dart';
 import 'package:flutter/material.dart';
 
 class CounterController {
