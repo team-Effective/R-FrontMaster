@@ -1,6 +1,11 @@
 import 'package:dg_master/logic/shared_preferences_logic.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
+import 'dart:convert';
+import 'package:dg_master/provider/test_provider.dart';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget  {
   const LoginPage({Key? key}) : super(key: key);
@@ -20,6 +25,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    // final TestProvider testProvider = Provider.of<TestProvider>(context);
     return Scaffold(
       backgroundColor: const Color.fromRGBO(67, 67, 67, 1),
       body: Center(
@@ -131,6 +137,9 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
+                  // Consumer<TestProvider>(builder: (context, test, child) {
+                  //   return Text(test.test?.code.toString() ?? '777');
+                  // }),
                 ],
               ),
               Padding(
@@ -141,6 +150,7 @@ class _LoginPageState extends State<LoginPage> {
                     print(_host_id);
                     //host_id を保存
                     SharedPreferencesLogic().saveHostID(_host_id);
+                    // testProvider.setTest();
                     Navigator.of(context).pushNamedAndRemoveUntil(
                       '/home',
                       (route) => false,
@@ -182,6 +192,22 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  Future<void> fetchTest() async {
+    print('stert');
+    try {
+      const url =
+          'https://0733cbb1-b839-4f2b-8e1a-b9da5f657f21.mock.pstmn.io/Player';
+      final uri = Uri.parse(url);
+      final respose = await http.get(uri);
+      final body = respose.body;
+      final json = jsonDecode(body);
+      print(json);
+      print('end');
+    } catch (e) {
+      print(e);
+    }
   }
 }
 
