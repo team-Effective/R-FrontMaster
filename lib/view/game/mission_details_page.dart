@@ -1,10 +1,14 @@
+import 'package:dg_master/logic/connect_websocket.dart';
+import 'package:dg_master/logic/notify_player.dart';
+import 'package:dg_master/logic/shared_preferences_logic.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MissionDetailsPage extends StatelessWidget {
   const MissionDetailsPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { 
     List<String> strList = [
       'テスト1',
       'テスト2',
@@ -27,8 +31,16 @@ class MissionDetailsPage extends StatelessWidget {
       'テスト19',
       'テスト20',
     ];
-
     ScrollController gamePlayerController = ScrollController();
+    String host_id = '';
+    //端末からuser_idを取得する
+    SharedPreferencesLogic().getHostID().then((hostID) {
+      if (hostID != null) {
+        host_id = hostID;
+        final webSocketProvider = Provider.of<WebSocketProvider>(context , listen: false);
+        webSocketProvider.connectWebSocket(host_id); // WebSocket接続を確立
+      }
+    });
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -164,7 +176,7 @@ class MissionDetailsPage extends StatelessWidget {
                                 ),
                               ),
                               Expanded(
-                                flex: 12,
+                                flex: 9,
                                 child: Container(
                                   decoration: BoxDecoration(
                                     border: Border.all(
@@ -213,7 +225,10 @@ class MissionDetailsPage extends StatelessWidget {
                                                           width: 16,
                                                         ),
                                                         OutlinedButton.icon(
-                                                          onPressed: () {},
+                                                          onPressed: () {
+                                                            //TODO: ミッションを失敗を通知する
+                                                            NotifyPlayer().MissionResult(host_id , false);
+                                                          },
                                                           style: OutlinedButton
                                                               .styleFrom(
                                                             side:
@@ -241,7 +256,10 @@ class MissionDetailsPage extends StatelessWidget {
                                                           width: 16,
                                                         ),
                                                         OutlinedButton.icon(
-                                                          onPressed: () {},
+                                                          onPressed: () {
+                                                            //TODO: ミッションを成功を通知する
+                                                            NotifyPlayer().MissionResult(host_id , true);
+                                                          },
                                                           style: OutlinedButton
                                                               .styleFrom(
                                                             side: const BorderSide(
@@ -277,6 +295,40 @@ class MissionDetailsPage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  child: Center(
+                                    child: OutlinedButton.icon(
+                                      onPressed: () {
+                                        //TODO: ミッションを終了を通知する
+                                        NotifyPlayer().MissionFinish(host_id);
+                                        Navigator.pushNamed(
+                                            context, '/game/mission/create');
+                                      },
+                                      style: OutlinedButton.styleFrom(
+                                        side: const BorderSide(
+                                          color: Colors.red,
+                                        ),
+                                        padding: const EdgeInsets.fromLTRB(
+                                            32, 16, 32, 16),
+                                      ),
+                                      icon: const Icon(
+                                        Icons.done,
+                                        size: 24,
+                                        color: Colors.red,
+                                      ),
+                                      label: const Text(
+                                        "Close Mission",
+                                        style: TextStyle(
+                                          fontSize: 24,
+                                          color: Colors.red,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                )
                               ),
                             ],
                           ),
